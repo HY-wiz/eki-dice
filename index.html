@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f1e7">
+  <title>易占ダイス</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <p class="eyebrow">易占</p>
+      <h1>易占ダイス</h1>
+      <p class="lead">問いを定め、八卦二個と爻位一個のダイスを振ります。</p>
+    </header>
+
+    <section class="panel">
+      <label for="question">問い</label>
+      <textarea id="question" rows="3" placeholder="例：この問題に、どのような姿勢で臨むべきか"></textarea>
+      <button id="cast" type="button">筮する</button>
+    </section>
+
+    <section id="result" class="result" aria-live="polite" hidden>
+      <p id="savedQuestion" class="question"></p>
+
+      <div class="dice-grid">
+        <div class="die">
+          <span>上卦</span>
+          <strong id="upperName">—</strong>
+          <b id="upperSymbol">—</b>
+        </div>
+        <div class="die">
+          <span>下卦</span>
+          <strong id="lowerName">—</strong>
+          <b id="lowerSymbol">—</b>
+        </div>
+        <div class="die">
+          <span>爻位</span>
+          <strong id="linePos">—</strong>
+          <b id="lineName">—</b>
+        </div>
+      </div>
+
+      <div class="hexagram">
+        <p class="caption">本卦</p>
+        <h2><span id="hexNo"></span> <span id="hexName"></span></h2>
+        <p id="hexReading" class="reading"></p>
+        <div id="lines" class="lines" aria-label="六爻図"></div>
+        <p class="changing">該当爻：<strong id="changingLine"></strong></p>
+      </div>
+
+      <button id="explainBtn" class="explain-button" type="button" aria-expanded="false" hidden>易の解説を見る</button>
+
+      <section id="explanation" class="explanation" hidden>
+        <h3>易の解説</h3>
+        <p class="explain-note">出た卦と爻の意味を、易の基礎知識として簡潔に説明します。問いへの当てはめや吉凶の判断は行いません。</p>
+        <div class="keyword-row"><strong>キーワード</strong><span id="hexKeyword"></span></div>
+        <div class="explain-block"><h4>卦の解説</h4><p id="hexTheme"></p></div>
+        <div class="explain-block"><h4 id="lineHeading">爻の解説</h4><p id="lineExplanation"></p></div>
+        <div class="explain-block"><h4>卦の構成</h4><p id="trigramExplanation"></p></div>
+      </section>
+
+      <button id="again" class="secondary" type="button">もう一度筮する</button>
+    </section>
+
+    <footer>出目と易の基礎的な解説を表示します。問いに対する解釈・吉凶判定は行いません。</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
